@@ -1,21 +1,75 @@
-# Raspberry Pi Relay API
+# Raspberry Pi Relay Control API
 
-This is a Node.js project for the Raspberry Pi.  It uses a relay hat to independently control three light bulbs.
+![Raspberry Pi](https://www.crowdsupply.com/img/59f5/powered-by-raspberry-pi-logo-outline-colour-screen_png_md-xl.jpg)
 
-Each bulb can be switched on and off through a simple HTTP POST API, which also allows the current status of each bulb to be retrieved.
+The Raspberry Pi Relay Control API is a simple project that allows you to control relays connected to a Raspberry Pi using a web API. This can be useful for home automation, remote control of devices, and various other applications where you need to toggle relays programmatically.
 
-There is a simple HTML front end that allows the user to see and change the state of each bulb.
+## Table of Contents
 
-This project was put together for the San Diego JS Fundamental JS Meetup group in January 2020.  Fundamental JS aims to explore vanilla JavaScript with minimal use of frameworks, so this project doesn't use any Node or front end frameworks apart from the npm package used to control the relays via the Pi's GPIO ports.
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+  - [Starting the API Server](#starting-the-api-server)
+- [Contributing](#contributing)
+- [License](#license)
 
-[Read the full blog post with video on my website!](https://simonprickett.dev/controlling-real-world-objects-with-raspberry-pi-and-node-js/)
+## Introduction
 
-Hardware used for this:
+This project provides a RESTful API that allows you to control relays connected to your Raspberry Pi. It uses the [RPi.GPIO](https://pypi.org/project/RPi.GPIO/) Python library to interface with the GPIO pins on the Raspberry Pi.
 
-* Raspberry Pi 3 (any model with 40 pin GPIO header works).
-* [Electronics Salon 3 Relay hat for Raspberry Pi](https://www.amazon.com/gp/product/B07CZL2SKN/).
-* A [6 position terminal strip](https://www.amazon.com/gp/product/B07DM14L14/) for connecting wires without soldering.
-* 3 x [cleat style light sockets](https://www.amazon.com/gp/product/B000BQRY5M/) that can be screwed to a board.
-* 3 x colored lightbulbs from Home Depot.
-* Lamp cord to cut up and connect the bulbs to the relays with.
-* A length of wood from Home Depot to screw everything down to.
+## Getting Started
+
+### Prerequisites
+
+Before you begin, make sure you have the following:
+
+- A Raspberry Pi with Raspbian OS installed
+- Python 3.x installed on the Raspberry Pi
+- Basic knowledge of working with GPIO pins on Raspberry Pi
+- Relays connected to the GPIO pins (make sure to connect them properly)
+
+### Installation
+
+1. Clone this repository to your Raspberry Pi:
+
+   ```bash
+   git clone https://github.com/faisalbhatti10/raspberry-pi-relay-api.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd raspberry-pi-relay-api
+   ```
+   
+3. In server.js file update your gpio pin numbers according to your connection with raspberry pi with relay module:
+
+## Usage
+
+### Starting the API Server
+
+1. In the project directory, start the API server:
+
+   ```bash
+   node server.js
+   ```
+
+2. The API server will start running, and you'll see output indicating the server is up and listening. And in the browser open following URL
+
+    ```bash
+     http://localhost:8080/
+     ```
+
+## Contributing
+
+Contributions are welcome! If you have any ideas, enhancements, or bug fixes, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Feel free to customize this README according to your project's specifics. Make sure to update the URLs, project description, and instructions to accurately represent your project. Good luck and happy coding!
