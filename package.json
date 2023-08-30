@@ -1,5 +1,5 @@
 {
-  "name": "raspberry-pi-relay-api",
+  "name": "raspberry-pi-relay-api-with-gpio",
   "version": "1.0.0",
   "description": "A API that switches relays connected to a Raspberry Pi.",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simonprickett/raspberry-pi-relay-api.git"
+    "url": "git+https://github.com/faisalbhatti10/raspberry-pi-relay-api-with-gpio.git"
   },
   "author": "Faisal Mukhtar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/simonprickett/raspberry-pi-relay-api/issues"
+    "url": "https://github.com/faisalbhatti10/raspberry-pi-relay-api-with-gpio/issues"
   },
-  "homepage": "https://github.com/simonprickett/raspberry-pi-relay-api#readme",
+  "homepage": "https://github.com/faisalbhatti10/raspberry-pi-relay-api-with-gpio#readme",
   "dependencies": {
     "onoff": "^5.0.1",
     "socket.io": "^4.7.2"
