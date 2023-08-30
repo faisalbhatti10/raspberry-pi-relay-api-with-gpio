@@ -1,21 +1,19 @@
 const http    = require('http').createServer(handler); //require http server, and create server with function handler()
-http.listen(8080); //listen to port 8080
-
 const fs      = require('fs'); //require filesystem module
 const io      = require('socket.io')(http) //require socket.io module and pass the http object (server)
-
 const gpio    = require('onoff').Gpio;
+
 const relays  = [
-    new gpio(10, 'out'),
-    new gpio(11, 'out'),
-    new gpio(12, 'out'),
-    new gpio(13, 'out'),
-    new gpio(14, 'out'),
-    new gpio(15, 'out'),
+    new gpio(18, 'out'),
+    new gpio(23, 'out'),
+    new gpio(24, 'out'),
+    new gpio(25, 'out'),
+    new gpio(08, 'out'),
+    new gpio(12, 'out')
 ];
 
 const allRelaysOff = () => {
-    relays.forEach(relay => relay.writeSync(0));
+  relays.forEach(relay => relay.writeSync(0));
 };
 
 // Create a web server and listen on 8080.
@@ -36,12 +34,15 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
 
     socket.on('light', function (data) { //get light switch status from client
 
-        const dataParts     = data.split('-');
-        const relayNumber   = dataParts[0];
-        const relayValue    = dataParts[1];
-        relays[(relayNumber - 1)].writeSync(relayValue);
+        var dataParts     = data.split('_');
+        var relayNumber   = dataParts[0];
+	    relayNumber 	  = relayNumber - 1;
+        var relayValue    = dataParts[1];
+        relays[parseInt(relayNumber)].writeSync(parseInt(relayValue));
     });
 });
+
+http.listen(8080); //listen to port 8080
 
 // Turn off all relays on start up.
 allRelaysOff();
@@ -51,4 +52,4 @@ process.on('SIGINT', () => {
 
     allRelaysOff();
     process.exit();
-});
+});    
