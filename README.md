@@ -35,7 +35,7 @@ Before you begin, make sure you have the following:
 1. Clone this repository to your Raspberry Pi:
 
    ```bash
-   git clone https://github.com/faisalbhatti10/raspberry-pi-relay-api.git
+   git clone https://github.com/faisalbhatti10/raspberry-pi-relay-api-with-gpio.git
    ```
 
 2. Navigate to the project directory:
