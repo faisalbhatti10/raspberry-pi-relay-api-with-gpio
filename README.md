@@ -44,7 +44,7 @@ Before you begin, make sure you have the following:
    cd raspberry-pi-relay-api
    ```
    
-3. In server.js file update your gpio pin numbers according to your connection with raspberry pi with relay module:
+3. In server.js file update your gpio pin numbers according to your connection of Raspberry Pi with Relay module:
 
 ## Usage
 
